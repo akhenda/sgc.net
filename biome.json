@@ -123,7 +123,7 @@
 		"enabled": true,
 		"actions": {
 			"source": {
-				"useSortedKeys": "on",
+				"useSortedKeys": "off",
 				"organizeImports": {
 					"level": "on",
 					"options": {
@@ -133,15 +133,20 @@
 							":NODE:",
 							":BUN:",
 							":BLANK_LINE:",
-							["^react", "^@react", "react", "@react", ":PACKAGE:"],
+							["react", "react-*", "react/**", "@react", "@react-*", "@react/**"],
 							":BLANK_LINE:",
-							["^u0000"],
+							[":PACKAGE_WITH_PROTOCOL:"],
+							":BLANK_LINE:",
+							[":PACKAGE:"],
 							":BLANK_LINE:",
 							["@/**", ":ALIAS:"],
 							":BLANK_LINE:",
-							":PATH:",
+							["../**"],
 							":BLANK_LINE:",
-							["^.+.scss$"]
+							["./**", ":PATH:"],
+							":BLANK_LINE:",
+							["**/*.css", "**/*.scss", "./**/*.css", "./**/*.scss", "./**/*.less"],
+							":BLANK_LINE:"
 						]
 					}
 				}

@@ -1,5 +1,5 @@
 module.exports = {
-  "*": [() => "bun run lint:repo", () => "bun run lint:repo:fix"],
+  "*": [() => "bun run lint"],
   "{app,lib}/**/*.{ts,tsx}": () => "bun run typecheck",
   "{app,lib}/**/*.{js,ts,jsx,tsx,json,md,html,css,scss}": [
     /**
