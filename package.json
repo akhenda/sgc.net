@@ -2,11 +2,14 @@
   "name": "procode-ufo-sightings",
   "private": true,
   "type": "module",
+  "packageManager": "bun@1.2.13",
   "scripts": {
     "build": "react-router build",
     "clean": "git clean -xdf .cache .react-router dist node_modules",
-    "format": "bunx biome check --write app/**",
     "dev": "react-router dev",
+    "format": "bunx biome check --write app/**",
+    "gc": "git add . && cz",
+    "gc-ai": "git add . && bunx czg ai -N=5",
     "lint": "bunx biome check app/** && bun run lint:repo",
     "lint:repo": "bunx sherif@latest",
     "lint:repo:fix": "bunx sherif@latest --fix",
@@ -14,6 +17,12 @@
     "prepare": "husky",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git",
+      "useEmoji": false
+    }
   },
   "dependencies": {
     "@react-router/node": "^7.5.3",
@@ -25,11 +34,14 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.0-beta.4",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@react-router/dev": "^7.5.3",
     "@tailwindcss/vite": "^4.1.4",
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "cz-git": "^1.11.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.0.0",
     "tailwindcss": "^4.1.4",
