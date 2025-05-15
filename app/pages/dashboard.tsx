@@ -1,7 +1,9 @@
+import { Navbar } from '@/components/navbar';
+
 export function Dashboard() {
   return (
-    <main className="flex h-screen items-center justify-center bg-background">
-      <div>Dahsboard</div>
-    </main>
+    <div className="min-h-screen bg-muted">
+      <Navbar />
+    </div>
   );
 }

@@ -31,7 +31,7 @@
     "bun.lock": true
   },
 
-  "tailwindCSS.experimental.configFile": "app/styles/globals.css",
+  "tailwindCSS.experimental.configFile": "app/app.css",
   "terminal.integrated.localEchoStyle": "dim",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": "node_modules/typescript/lib",
