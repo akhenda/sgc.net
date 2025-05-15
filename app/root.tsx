@@ -5,7 +5,10 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigation,
 } from 'react-router';
+
+import HolyLoader from 'holy-loader';
 
 import type { Route } from './+types/root';
 import { Navbar } from './components/navbar';
@@ -26,6 +29,9 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const navigation = useNavigation();
+  const _isNavigating = Boolean(navigation.location);
+
   return (
     <html lang="en">
       <head>
@@ -37,6 +43,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <Navbar />
         {children}
+        {true && <HolyLoader />}
         <ScrollRestoration />
         <Scripts />
       </body>
