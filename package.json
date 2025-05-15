@@ -1,58 +1,58 @@
 {
-  "name": "procode-ufo-sightings",
-  "private": true,
-  "type": "module",
-  "packageManager": "bun@1.2.13",
-  "scripts": {
-    "build": "react-router build",
-    "clean": "git clean -xdf .cache .react-router dist node_modules",
-    "dev": "react-router dev",
-    "format": "bunx biome check --write app/**",
-    "gc": "git add . && cz",
-    "gc-ai": "git add . && bunx czg ai -N=5",
-    "lint": "bunx biome check app/** && bun run lint:repo",
-    "lint:repo": "bunx sherif@latest",
-    "lint:repo:fix": "bunx sherif@latest --fix",
-    "preinstall": "npx only-allow bun",
-    "prepare": "husky",
-    "start": "react-router-serve ./build/server/index.js",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "test:ui": "vitest --ui",
-    "typecheck": "react-router typegen && tsc"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git",
-      "useEmoji": false
-    }
-  },
-  "dependencies": {
-    "@react-router/node": "^7.5.3",
-    "@react-router/serve": "^7.5.3",
-    "isbot": "^5.1.27",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-router": "^7.5.3"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.0.0-beta.4",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@react-router/dev": "^7.5.3",
-    "@tailwindcss/vite": "^4.1.4",
-    "@types/node": "^20",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@vitest/coverage-v8": "3.1.3",
-    "@vitest/ui": "^3.1.3",
-    "cz-git": "^1.11.1",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.0.0",
-    "tailwindcss": "^4.1.4",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.3",
-    "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.1.3"
-  }
+	"name": "procode-ufo-sightings",
+	"private": true,
+	"type": "module",
+	"packageManager": "bun@1.2.13",
+	"scripts": {
+		"build": "react-router build",
+		"clean": "git clean -xdf .cache .react-router dist node_modules",
+		"dev": "react-router dev",
+		"format": "bunx biome check --write app/**",
+		"gc": "git add . && cz",
+		"gc-ai": "git add . && bunx czg ai -N=5",
+		"lint": "bunx biome check app/** && bun run lint:repo",
+		"lint:repo": "bunx sherif@latest",
+		"lint:repo:fix": "bunx sherif@latest --fix",
+		"preinstall": "npx only-allow bun",
+		"prepare": "husky",
+		"start": "react-router-serve ./build/server/index.js",
+		"test": "vitest",
+		"test:watch": "vitest --watch",
+		"test:ui": "vitest --ui",
+		"typecheck": "react-router typegen && tsc"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git",
+			"useEmoji": false
+		}
+	},
+	"dependencies": {
+		"@react-router/node": "7.5.3",
+		"@react-router/serve": "7.5.3",
+		"isbot": "5.1.27",
+		"react": "19.1.0",
+		"react-dom": "19.1.0",
+		"react-router": "7.5.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.0.0-beta.4",
+		"@commitlint/cli": "19.8.1",
+		"@commitlint/config-conventional": "19.8.1",
+		"@react-router/dev": "7.5.3",
+		"@tailwindcss/vite": "4.1.4",
+		"@types/node": "20",
+		"@types/react": "19.1.2",
+		"@types/react-dom": "19.1.2",
+		"@vitest/coverage-v8": "3.1.3",
+		"@vitest/ui": "3.1.3",
+		"cz-git": "1.11.1",
+		"husky": "9.1.7",
+		"lint-staged": "16.0.0",
+		"tailwindcss": "4.1.4",
+		"typescript": "5.8.3",
+		"vite": "6.3.3",
+		"vite-tsconfig-paths": "5.1.4",
+		"vitest": "3.1.3"
+	}
 }
