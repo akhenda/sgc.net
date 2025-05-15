@@ -4,7 +4,13 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
+    "clean": "git clean -xdf .cache .react-router dist node_modules",
+    "format": "bunx biome check --write app/**",
     "dev": "react-router dev",
+    "lint": "bunx biome check app/** && bun run lint:repo",
+    "lint:repo": "bunx sherif@latest",
+    "lint:repo:fix": "bunx sherif@latest --fix",
+    "preinstall": "npx only-allow bun",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
@@ -17,6 +23,7 @@
     "react-router": "^7.5.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.0.0-beta.4",
     "@react-router/dev": "^7.5.3",
     "@tailwindcss/vite": "^4.1.4",
     "@types/node": "^20",
