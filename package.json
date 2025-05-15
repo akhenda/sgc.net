@@ -27,6 +27,7 @@
 		}
 	},
 	"dependencies": {
+		"@radix-ui/react-slot": "1.2.2",
 		"@react-router/node": "7.6.0",
 		"@react-router/serve": "7.6.0",
 		"class-variance-authority": "0.7.1",
