@@ -2,6 +2,8 @@
 
 "The gate is open!" Join the Stargate Command's mission to track anomalous crafts, be they alien vessels or oversized seagulls, circling over the Procode headquarters.
 
+![Dashboard](.github/sgc.net.webp)
+
 ## Features
 
 - 🚀 Server-side rendering
