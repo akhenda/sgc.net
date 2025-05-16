@@ -5,33 +5,36 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useNavigation,
 } from 'react-router';
 
 import HolyLoader from 'holy-loader';
+import { Toaster } from 'sonner';
 
 import type { Route } from './+types/root';
-import { Navbar } from './components/navbar';
 
 import './app.css';
 
+import { FullScreenLoader } from './components/full-screen-loader';
+import { Navbar } from './components/navbar';
+import { authStore } from './stores';
+
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-  {
-    rel: 'preconnect',
-    href: 'https://fonts.gstatic.com',
-    crossOrigin: 'anonymous',
-  },
+  { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
-  const navigation = useNavigation();
-  const _isNavigating = Boolean(navigation.location);
+export async function clientLoader() {
+  const isLoggedIn = authStore.get('isLoggedIn');
 
+  return { isLoggedIn };
+}
+clientLoader.hydrate = true;
+
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -41,9 +44,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Navbar />
+        <HolyLoader />
         {children}
-        {true && <HolyLoader />}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -51,8 +53,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
-  return <Outlet />;
+export default function App({ loaderData }: Route.ComponentProps) {
+  return (
+    <>
+      <Navbar isLoggedIn={loaderData?.isLoggedIn} />
+      <Outlet />
+      <Toaster />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -80,4 +88,8 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       )}
     </main>
   );
+}
+
+export function HydrateFallback() {
+  return <FullScreenLoader />;
 }
