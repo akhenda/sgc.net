@@ -1,4 +1,10 @@
+import { UFOs } from '@/lib/api';
+import { logger } from '@/lib/logger';
+
 export function Dashboard() {
+  const { data } = UFOs.useGetSightings();
+  logger.info('data: ', data);
+
   return (
     <div className="min-h-screen bg-muted">
       <div className="container mx-auto h-screen max-w-screen-xl space-y-6 pt-28 pb-20">

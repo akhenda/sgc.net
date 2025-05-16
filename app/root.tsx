@@ -16,6 +16,7 @@ import './app.css';
 
 import { FullScreenLoader } from './components/full-screen-loader';
 import { Navbar } from './components/navbar';
+import { APIProvider } from './lib/api';
 import { authStore } from './stores';
 
 export const links: Route.LinksFunction = () => [
@@ -55,11 +56,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App({ loaderData }: Route.ComponentProps) {
   return (
-    <>
+    <APIProvider>
       <Navbar isLoggedIn={loaderData?.isLoggedIn} />
       <Outlet />
       <Toaster />
-    </>
+    </APIProvider>
   );
 }
 
