@@ -1,11 +1,23 @@
+import { useNavigate } from 'react-router';
+
 import { ArrowUpRight, CirclePlay } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { logger } from '@/lib/logger';
+import { authActions } from '@/stores';
 
 import { BackgroundPattern } from './background-pattern';
 
 export function Hero() {
+  const navigate = useNavigate();
+
+  const onLoginAnonymously = () => {
+    authActions('loginAnonymously');
+    navigate('/dashboard');
+    logger.success('Logged in anonymously').toast();
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center px-6">
       <BackgroundPattern />
@@ -22,7 +34,7 @@ export function Hero() {
           alien vessels or oversized seagulls, circling over the Procode headquarters.
         </p>
         <div className="mt-12 flex items-center justify-center gap-4">
-          <Button size="lg" className="rounded-full text-base">
+          <Button size="lg" className="rounded-full text-base" onClick={onLoginAnonymously}>
             Launch Dashboard <ArrowUpRight className="!h-5 !w-5" />
           </Button>
           <Button variant="outline" size="lg" className="rounded-full text-base shadow-none">
