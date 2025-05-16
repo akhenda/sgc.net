@@ -10,6 +10,7 @@ var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'S
 export function convertDateFormat(dateString: string) {
   // Use dayjs to parse the date string with the specified format
   const dateObject = dayjs(dateString, 'DD/MM/YYYY');
+  console.log('dateObject: ', dateObject);
 
   // Handle cases where the date string is not valid
   if (!dateObject.isValid()) throw new Error('Invalid Date');
