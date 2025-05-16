@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
-import { getSightings, type Sightings } from '../endpoints';
+import { getSightings, type SightingsWithStats } from '../endpoints';
 
 const QUERY_KEY = 'applications';
 
@@ -9,7 +9,7 @@ export function getSightingsQueryKey() {
 }
 
 export function useGetSightings() {
-  const query = useQuery<Sightings | undefined>({
+  const query = useQuery<SightingsWithStats | undefined>({
     queryKey: getSightingsQueryKey(),
     queryFn: ({ signal }) => getSightings({ signal }),
     placeholderData: keepPreviousData,
