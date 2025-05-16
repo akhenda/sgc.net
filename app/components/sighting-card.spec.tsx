@@ -56,4 +56,12 @@ describe('SightingCard', () => {
 
     expect(convertDateFormat).toHaveBeenCalledWith(mockSighting.date);
   });
+
+  it('should match snapshot with sighting data', () => {
+    const { container } = render(
+      <SightingCard title={mockTitle} sighting={mockSighting} Icon={MockIcon} />,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
 });
