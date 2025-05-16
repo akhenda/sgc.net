@@ -48,7 +48,7 @@ export function groupDataByWeek(data: Sightings): WeeklySightings {
     const date = convertDateFormat(entry.date);
 
     const dayOfWeek = date.getDay();
-    const daysToSubtract = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+    const daysToSubtract = dayOfWeek === 0 ? 6 : dayOfWeek - 2;
     const weekStartDate = new Date(date);
 
     weekStartDate.setDate(date.getDate() - daysToSubtract);
