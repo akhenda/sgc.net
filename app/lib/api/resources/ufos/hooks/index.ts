@@ -2,7 +2,7 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 import { getSightings, type SightingsWithStats } from '../endpoints';
 
-const QUERY_KEY = 'applications';
+const QUERY_KEY = 'sightings';
 
 export function getSightingsQueryKey() {
   return [QUERY_KEY];
