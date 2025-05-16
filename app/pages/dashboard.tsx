@@ -15,11 +15,11 @@ export function Dashboard() {
 
   if (isLoading || !data) return <FullScreenLoader />;
 
-  const { first, last, most, least } = data;
+  const { first, last, most, least, data: sightings } = data;
 
   return (
     <div className="min-h-screen bg-muted">
-      <div className="container mx-auto h-screen max-w-screen-xl space-y-6 pt-28 pb-20">
+      <div className="container mx-auto min-h-screen max-w-screen-xl space-y-6 pt-28 pb-20">
         <div className="flex flex-row gap-4">
           <SightingCard title="First UFO Sightings" sighting={first} Icon={Calendar1Icon} />
           <SightingCard title="Least UFO Sightings" sighting={least} Icon={CalendarArrowDown} />
@@ -27,7 +27,7 @@ export function Dashboard() {
           <SightingCard title="Last UFO Sightings" sighting={last} Icon={CalendarCheckIcon} />
         </div>
         <div className="min-h-80 flex-1 rounded-md bg-card p-6 shadow-lg">
-          <SightingsChart />
+          <SightingsChart data={sightings} />
         </div>
       </div>
     </div>
