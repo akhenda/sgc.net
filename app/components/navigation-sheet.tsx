@@ -6,7 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Logo } from './logo';
 import { NavMenu } from './nav-menu';
 
-export const NavigationSheet = () => {
+export const NavigationSheet = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -16,7 +16,7 @@ export const NavigationSheet = () => {
       </SheetTrigger>
       <SheetContent>
         <Logo />
-        <NavMenu orientation="vertical" className="mt-12" />
+        {isLoggedIn && <NavMenu orientation="vertical" className="mt-12" />}
       </SheetContent>
     </Sheet>
   );

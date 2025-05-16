@@ -33,7 +33,7 @@ export function Navbar({ isLoggedIn }: { isLoggedIn: boolean }) {
 
             {/* Mobile Menu */}
             <div className="md:hidden">
-              <NavigationSheet />
+              <NavigationSheet isLoggedIn={isLoggedIn} />
             </div>
           </div>
         )}

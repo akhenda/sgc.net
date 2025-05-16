@@ -11,7 +11,7 @@ export function SightingCard({ title, sighting, Icon }: SightingCardProps) {
   const { date, sightings } = sighting;
 
   return (
-    <div className="relative flex min-h-40 flex-1 flex-col justify-between overflow-hidden rounded-md bg-card p-6 shadow-lg">
+    <div className="relative flex min-h-40 flex-1 flex-col justify-between overflow-hidden rounded-[1rem] bg-card p-6 shadow-lg">
       <h3 className="font-bold text-sm">{title}</h3>
       {date && <p className="text-muted-foreground">{convertDateFormat(date).toDateString()}</p>}
       {(sightings || sightings === 0) && (

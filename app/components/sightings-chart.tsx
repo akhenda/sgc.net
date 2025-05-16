@@ -46,7 +46,6 @@ export function SightingsChart({ data }: { data: Sightings }) {
   };
 
   if (!selectedWeekData) return null;
-  console.log('selectedWeekData: ', selectedWeekData);
 
   return (
     <div className="h-full w-full">
