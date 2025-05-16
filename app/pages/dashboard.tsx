@@ -5,6 +5,7 @@ import {
   CalendarCheckIcon,
   type LucideIcon,
 } from 'lucide-react';
+import { VictoryBar, VictoryChart, VictoryGroup, VictoryTheme } from 'victory';
 
 import { FullScreenLoader } from '@/components/full-screen-loader';
 import { UFOs } from '@/lib/api';
@@ -32,6 +33,39 @@ function SightingCard({ title, sighting, Icon }: SightingCardProps) {
   );
 }
 
+function SightingsGraph() {
+  return (
+    <VictoryChart theme={VictoryTheme.clean} domain={{ y: [0.5, 5.5] }} domainPadding={{ x: 40 }}>
+      <VictoryGroup offset={20} style={{ data: { width: 15 } }}>
+        <VictoryBar
+          data={[
+            { x: '2023 Q1', y: 1 },
+            { x: '2023 Q2', y: 2 },
+            { x: '2023 Q3', y: 3 },
+            { x: '2023 Q4', y: 2 },
+          ]}
+        />
+        <VictoryBar
+          data={[
+            { x: '2023 Q1', y: 2 },
+            { x: '2023 Q2', y: 3 },
+            { x: '2023 Q3', y: 4 },
+            { x: '2023 Q4', y: 5 },
+          ]}
+        />
+        <VictoryBar
+          data={[
+            { x: '2023 Q1', y: 1 },
+            { x: '2023 Q2', y: 2 },
+            { x: '2023 Q3', y: 3 },
+            { x: '2023 Q4', y: 4 },
+          ]}
+        />
+      </VictoryGroup>
+    </VictoryChart>
+  );
+}
+
 export function Dashboard() {
   const { data, isLoading } = UFOs.useGetSightings();
   logger.info('data: ', data);
@@ -49,7 +83,9 @@ export function Dashboard() {
           <SightingCard title="Most UFO Sightings" sighting={most} Icon={CalendarArrowUpIcon} />
           <SightingCard title="Last UFO Sightings" sighting={last} Icon={CalendarCheckIcon} />
         </div>
-        <div className="min-h-80 flex-1 rounded-md bg-card p-6 shadow-lg">Chart Area</div>
+        <div className="min-h-80 flex-1 rounded-md bg-card p-6 shadow-lg">
+          <SightingsGraph />
+        </div>
       </div>
     </div>
   );
